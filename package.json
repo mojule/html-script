@@ -1,7 +1,7 @@
 {
   "name": "html-script",
   "version": "0.1.0",
-  "description": "html-script",
+  "description": "Create DOM nodes (real or virtual) using a concise API, similar to hyperscript",
   "main": "index.js",
   "scripts": {
     "build": "gulp",

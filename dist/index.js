@@ -18,7 +18,8 @@ var H = function H() {
       createText = adapter.createText,
       createElement = adapter.createElement,
       appendChild = adapter.appendChild,
-      addAttributes = adapter.addAttributes;
+      addAttributes = adapter.addAttributes,
+      addEventListener = adapter.addEventListener;
 
 
   var handleArg = function handleArg(el, arg) {
@@ -35,9 +36,9 @@ var H = function H() {
       var value = attributes[key];
 
       if (typeof value === 'function') {
-        if (typeof adapter.addEventListener === 'function' && key.startsWith('on')) {
+        if (typeof addEventListener === 'function' && key.startsWith('on')) {
           var eventName = key.slice(2);
-          adapter.addEventListener(eventName, value);
+          addEventListener(el, eventName, value);
         }
 
         delete attributes[key];

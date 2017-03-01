@@ -1,11 +1,5 @@
 'use strict'
 
-const Html = require( 'html-node' )
-const utils = require( 'mojule-utils' )
-
-const html = Html()
-const { capitalizeFirstLetter } = utils
-
 const jsonmlAdapter = {
   isNode: node => Array.isArray( node ),
 

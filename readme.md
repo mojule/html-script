@@ -271,7 +271,7 @@ similar to [rtype](https://github.com/ericelliott/rtype) /
 }
 ```
 
-See the built in [JsonML adapter]('./src/jsonml-adapter.js') for an example of
+See the built in [JsonML adapter](/src/jsonml-adapter.js) for an example of
 how adapters work.
 
 `addEventListener` is optional and only needs to be implemented by adapters for

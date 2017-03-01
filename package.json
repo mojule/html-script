@@ -1,0 +1,30 @@
+{
+  "name": "html-script",
+  "version": "0.1.0",
+  "description": "html-script",
+  "main": "index.js",
+  "scripts": {
+    "build": "gulp",
+    "test": "mocha"
+  },
+  "keywords": [],
+  "author": "Nik Coughlin <nrkn.com@gmail.com>",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/mojule/html-script.git"
+  },
+  "bugs": {
+    "url": "https://github.com/mojule/html-script/issues"
+  },
+  "homepage": "https://github.com/mojule/html-script#readme",
+  "devDependencies": {
+    "babel-preset-es2015": "^6.18.0",
+    "gulp": "^3.9.1",
+    "gulp-babel": "^6.1.2"
+  },
+  "dependencies": {
+    "html-node": "^0.1.1",
+    "mojule-utils": "^0.1.7"
+  }
+}

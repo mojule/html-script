@@ -267,7 +267,7 @@ similar to [rtype](https://github.com/ericelliott/rtype) /
   createDocumentType: ( name:String, publicId:String?, systemId:String? ) => documentTypeNode:Node,
   createComment: ( value:String ) => commentNode:Node,
   createDocumentFragment: () => documentFragmentNode:Node,
-  addEventListener: ( name:String, listener:( e:Event? ) => result:Boolean ) => Void
+  addEventListener: ( node:Node, name:String, listener:( e:Event? ) => result:Boolean ) => Void
 }
 ```
 

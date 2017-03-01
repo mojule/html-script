@@ -1,6 +1,6 @@
 {
   "name": "html-script",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Create DOM nodes (real or virtual) using a concise API, similar to hyperscript",
   "main": "index.js",
   "scripts": {

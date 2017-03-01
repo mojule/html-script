@@ -11,7 +11,8 @@ const { capitalizeFirstLetter } = utils
 
 const H = ( adapter = defaultAdapter ) => {
   const {
-    isNode, createText, createElement, appendChild, addAttributes
+    isNode, createText, createElement, appendChild, addAttributes,
+    addEventListener
   } = adapter
 
   const handleArg = ( el, arg ) => {
@@ -28,9 +29,9 @@ const H = ( adapter = defaultAdapter ) => {
       const value = attributes[ key ]
 
       if( typeof value === 'function' ){
-        if( typeof adapter.addEventListener === 'function' && key.startsWith( 'on' ) ){
+        if( typeof addEventListener === 'function' && key.startsWith( 'on' ) ){
           const eventName = key.slice( 2 )
-          adapter.addEventListener( eventName, value )
+          addEventListener( el, eventName, value )
         }
 
         delete attributes[ key ]

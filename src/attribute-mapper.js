@@ -1,6 +1,6 @@
 'use strict'
 
-const utils = require( 'mojule-utils' )
+const utils = require( '@mojule/utils' )
 
 const { camelCaseToHyphenated } = utils
 

@@ -1,13 +1,12 @@
 'use strict'
 
-const Html = require( 'html-node' )
-const utils = require( 'mojule-utils' )
+const html = require( '@mojule/html' )
+const utils = require( '@mojule/utils' )
 const defaultAdapter = require( './jsonml-adapter' )
 const attributeMapper = require( './attribute-mapper' )
 const fromJsonML = require( './from-jsonml' )
 
-const html = Html()
-const { capitalizeFirstLetter } = utils
+const { capitalizeFirstLetter, hyphenatedToCamelCase } = utils
 
 const H = ( adapter = defaultAdapter ) => {
   const {
@@ -85,15 +84,16 @@ const H = ( adapter = defaultAdapter ) => {
   )
 
   nonTags.forEach( name => {
-    const fname = 'create' + capitalizeFirstLetter( name )
+    const fname = hyphenatedToCamelCase( name )
+    const cname = 'create' + capitalizeFirstLetter( fname )
 
-    h[ name ] = ( ...args ) => {
+    h[ fname ] = ( ...args ) => {
       let node
 
       if( html.isEmpty( '#' + name ) ){
-        node = adapter[ fname ]( ...args )
+        node = adapter[ cname ]( ...args )
       } else {
-        node = adapter[ fname ]()
+        node = adapter[ cname ]()
 
         args.forEach( arg => {
           handleArg( node, arg )

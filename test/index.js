@@ -1,7 +1,7 @@
 'use strict'
 
 const assert = require( 'assert' )
-const H = require( '../dist' )
+const H = require( '../src' )
 
 const {
   document, documentType, text, comment, documentFragment, element,

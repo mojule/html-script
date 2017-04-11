@@ -1,10 +1,11 @@
 {
   "name": "html-script",
-  "version": "0.1.2",
+  "version": "0.2.0",
   "description": "Create DOM nodes (real or virtual) using a concise API, similar to hyperscript",
   "main": "index.js",
   "scripts": {
     "build": "gulp",
+    "coverage": "istanbul cover node_modules/mocha/bin/_mocha",
     "test": "mocha"
   },
   "keywords": [],
@@ -21,10 +22,12 @@
   "devDependencies": {
     "babel-preset-es2015": "^6.18.0",
     "gulp": "^3.9.1",
-    "gulp-babel": "^6.1.2"
+    "gulp-babel": "^6.1.2",
+    "istanbul": "^0.4.5",
+    "mocha": "^3.2.0"
   },
   "dependencies": {
-    "html-node": "^0.1.1",
-    "mojule-utils": "^0.1.7"
+    "@mojule/html": "^0.1.0",
+    "@mojule/utils": "^0.1.10"
   }
 }

@@ -1,12 +1,5 @@
 'use strict';
 
-var Html = require('html-node');
-var utils = require('mojule-utils');
-
-var html = Html();
-var capitalizeFirstLetter = utils.capitalizeFirstLetter;
-
-
 var jsonmlAdapter = {
   isNode: function isNode(node) {
     return Array.isArray(node);

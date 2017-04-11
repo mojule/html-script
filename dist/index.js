@@ -2,14 +2,14 @@
 
 var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol" ? function (obj) { return typeof obj; } : function (obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; };
 
-var Html = require('html-node');
-var utils = require('mojule-utils');
+var html = require('@mojule/html');
+var utils = require('@mojule/utils');
 var defaultAdapter = require('./jsonml-adapter');
 var attributeMapper = require('./attribute-mapper');
 var _fromJsonML = require('./from-jsonml');
 
-var html = Html();
-var capitalizeFirstLetter = utils.capitalizeFirstLetter;
+var capitalizeFirstLetter = utils.capitalizeFirstLetter,
+    hyphenatedToCamelCase = utils.hyphenatedToCamelCase;
 
 
 var H = function H() {
@@ -103,9 +103,10 @@ var H = function H() {
   });
 
   nonTags.forEach(function (name) {
-    var fname = 'create' + capitalizeFirstLetter(name);
+    var fname = hyphenatedToCamelCase(name);
+    var cname = 'create' + capitalizeFirstLetter(fname);
 
-    h[name] = function () {
+    h[fname] = function () {
       for (var _len3 = arguments.length, args = Array(_len3), _key3 = 0; _key3 < _len3; _key3++) {
         args[_key3] = arguments[_key3];
       }
@@ -113,9 +114,9 @@ var H = function H() {
       var node = void 0;
 
       if (html.isEmpty('#' + name)) {
-        node = adapter[fname].apply(adapter, args);
+        node = adapter[cname].apply(adapter, args);
       } else {
-        node = adapter[fname]();
+        node = adapter[cname]();
 
         args.forEach(function (arg) {
           handleArg(node, arg);

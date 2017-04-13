@@ -8,11 +8,19 @@ const fromJsonML = require( './from-jsonml' )
 
 const { capitalizeFirstLetter, hyphenatedToCamelCase } = utils
 
-const H = ( adapter = defaultAdapter ) => {
+const defaultOptions = {
+  nodeNames: html.tagNames()  
+}
+
+const H = ( adapter = defaultAdapter, options = {} ) => {
   const {
     isNode, createText, createElement, appendChild, addAttributes,
     addEventListener
   } = adapter
+
+  options = Object.assign( {}, defaultOptions, options )
+
+  const { nodeNames } = options
 
   const handleArg = ( el, arg ) => {
     if( typeof arg === 'string' ){
@@ -63,8 +71,6 @@ const H = ( adapter = defaultAdapter ) => {
     attributeMapper,
     fromJsonML: jsonML => fromJsonML( jsonML, h )
   }
-
-  const nodeNames = html.tagNames()
 
   const { tags, nonTags } = nodeNames.reduce(
     ( categories, name ) => {

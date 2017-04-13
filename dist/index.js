@@ -12,14 +12,25 @@ var capitalizeFirstLetter = utils.capitalizeFirstLetter,
     hyphenatedToCamelCase = utils.hyphenatedToCamelCase;
 
 
+var defaultOptions = {
+  nodeNames: html.tagNames()
+};
+
 var H = function H() {
   var adapter = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : defaultAdapter;
+  var options = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : {};
   var isNode = adapter.isNode,
       createText = adapter.createText,
       createElement = adapter.createElement,
       appendChild = adapter.appendChild,
       addAttributes = adapter.addAttributes,
       addEventListener = adapter.addEventListener;
+
+
+  options = Object.assign({}, defaultOptions, options);
+
+  var _options = options,
+      nodeNames = _options.nodeNames;
 
 
   var handleArg = function handleArg(el, arg) {
@@ -77,8 +88,6 @@ var H = function H() {
       return _fromJsonML(jsonML, h);
     }
   };
-
-  var nodeNames = html.tagNames();
 
   var _nodeNames$reduce = nodeNames.reduce(function (categories, name) {
     if (name.startsWith('#')) {
